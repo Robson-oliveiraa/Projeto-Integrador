@@ -6,7 +6,7 @@ def Text(Text):
     for letra in list(Text):
         print(letra, end = '')
         stdout.flush()
-        sleep(0.005)
-    sleep(0.005)
+        sleep(0.05)
+    sleep(0.05)
     print(end = '\n')
     system('cls')
