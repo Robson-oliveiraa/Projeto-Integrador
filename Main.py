@@ -3,7 +3,6 @@ from Funções import *
 from os import system
 
 i = 0
-valor = 0
 cancelar = 0
 Alunos_Cadastrados = []
 while True:
@@ -16,32 +15,31 @@ while True:
     sexo = input('Sexo do Aluno:\n')
     system('cls')
 
-    valor = Cadastro(nome,data_N,n_Matricula,turma,sexo)
-    Alunos_Cadastrados.insert(i, valor)
-    valor =+ 1
+    Atleta = Cadastro(nome,data_N,n_Matricula,turma,sexo)
+    Alunos_Cadastrados.insert(i, Atleta)
     i =+ 1
 
-    escolhar = input('Deseja adicionar outro aluno?\n[1] Sim\n[2] Não\n')
+    escolha = input('Deseja adicionar outro aluno?\n[1] Sim\n[2] Não\n')
     system('cls')
-    if escolhar == '1':
+    if escolha == '1':
         continue
-    elif escolhar == '2':
+    elif escolha == '2':
         break
-    while escolhar != '1' and escolhar != '2':
-        escolhar = input('Deseja adicionar outro aluno?\n[1] Sim\n[2] Não\n')
+    while escolha != '1' and escolha != '2':
+        escolha = input('Deseja adicionar outro aluno?\n[1] Sim\n[2] Não\n')
         system('cls')
-        if escolhar == '1':
-            continue
-        elif escolhar == '2':
-            cancelar += 1
+        if escolha == '1':
+            break
+        elif escolha == '2':
+            cancelar = 1
             break
 
 for i in range(len(Alunos_Cadastrados)):
     Alunos_Cadastrados[i].exibir()
     while True:
-        info = input('Deseja alterar alguma informação do aluno?\n[1] Sim\n[2] Não\n')
+        info = input('Deseja alterar alguma informação?\n[1] Sim\n[2] Não\n')
         while info != '1' and info != '2':
-            info = input('Deseja alterar alguma informação do aluno?\n[1] Sim\n[2] Não\n')
+            info = input('Deseja alterar alguma informação?\n[1] Sim\n[2] Não\n')
             if info == '2':
                 break
         if info == '1':

@@ -9,12 +9,7 @@ class Cadastro():
         self.sexo = sexo
 
     def exibir(self):
-        Text(f'''
-Nome: {self.nome}
-Data de Nascimento: {self.data_N}
-Nº Matricula: {self.n_Matricula}
-Turma: {self.turma}
-Sexo: {self.sexo}''')
+        Text(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}')
 
     def setNome(self, nome):
         self.nome = nome
