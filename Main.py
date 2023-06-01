@@ -4,8 +4,11 @@ from os import system
 
 i = 0
 valor = 0
+cancelar = 0
 Alunos_Cadastrados = []
 while True:
+    if cancelar == 1:
+        break
     nome = input('Nome do Aluno:\n')
     data_N = input('Data de Nascimento do Aluno:\n')
     n_Matricula = input('Nº da Matricula do Aluno:\n')
@@ -30,6 +33,7 @@ while True:
         if escolhar == '1':
             continue
         elif escolhar == '2':
+            cancelar += 1
             break
 
 for i in range(len(Alunos_Cadastrados)):
