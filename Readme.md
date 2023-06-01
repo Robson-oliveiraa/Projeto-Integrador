@@ -6,5 +6,5 @@
 #### Wandell da Costa Mota
 
 ---
-##### Estou tendo problema de verificação com o while escolhar == '1' and escolhar == '2'
+##### Estou tendo problema de verificação com o while escolhar != '1' and escolhar != '2':
 ##### Logo irei resolver
