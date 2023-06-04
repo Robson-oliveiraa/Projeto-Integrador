@@ -1,6 +1,6 @@
-from Funções import *
+from funcoes import *
 
-class Cadastro():
+class cadastro():
     def __init__(self, nome, data_N, n_Matricula, turma, sexo):
         self.nome = nome
         self.data_N = data_N
@@ -9,7 +9,7 @@ class Cadastro():
         self.sexo = sexo
 
     def exibir(self):
-        Text(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}')
+        text(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}')
 
     def setNome(self, nome):
         self.nome = nome

@@ -2,7 +2,7 @@ from sys import stdout
 from time import sleep
 from os import system
 
-def Text(txt):
+def text(txt):
     for letra in list(txt):
         print(letra, end = '')
         stdout.flush()
