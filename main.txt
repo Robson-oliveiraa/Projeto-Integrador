@@ -2,18 +2,18 @@
 1
 Nome: dsa
 Data de Nascimento: dsa
-Nº Matricula: dsa
+Nï¿½ Matricula: dsa
 Turma: dsa
 Sexo: dsa
 2
 Nome: 
 Data de Nascimento: dsa
-Nº Matricula: dsa
+Nï¿½ Matricula: dsa
 Turma: dsad
 Sexo: sadsadsa
 3
 Nome: dsa
 Data de Nascimento: dsad
-Nº Matricula: sad
+Nï¿½ Matricula: sad
 Turma: dsa
 Sexo: dsad
