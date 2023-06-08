@@ -4,12 +4,9 @@ from os import system
 
 # DOIDEIRA DO ROBSON
 i = 0
-cancelar = 0
 alunos_Cadastrados = []
 
 while True:
-    if cancelar == 1:
-        break
     nome = input('Nome do Aluno:\n')
     data_N = input('Data de Nascimento do Aluno:\n')
     n_Matricula = input('Nº da Matricula do Aluno:\n')
@@ -33,8 +30,9 @@ while True:
         if escolha == '1':
             break
         elif escolha == '2':
-            cancelar = 1
             break
+    if escolha == '2':
+        break
 
 for i in range(len(alunos_Cadastrados)):
     alunos_Cadastrados[i].exibir()
