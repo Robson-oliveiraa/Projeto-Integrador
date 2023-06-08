@@ -1,10 +1,14 @@
 from classe import *
 from funcoes import *
 from os import system
+from login import login
 
 # DOIDEIRA DO ROBSON
 i = 0
 alunos_Cadastrados = []
+
+login.login()
+
 
 while True:
     nome = input('Nome do Aluno:\n')
