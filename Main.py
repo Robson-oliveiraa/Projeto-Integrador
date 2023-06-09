@@ -1,12 +1,18 @@
 from classe import *
 from funcoes import *
 from os import system
+from login import login
 
 # DOIDEIRA DO ROBSON
 i = 0
 a = 0
 alunos_Cadastrados = []
 
+<<<<<<< HEAD
+=======
+login.login()
+
+>>>>>>> f92c0288f7ae6c570c546c8e0a2c6aba2bffb714
 
 while True:
     
