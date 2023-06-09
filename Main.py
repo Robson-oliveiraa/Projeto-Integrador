@@ -8,11 +8,7 @@ i = 0
 a = 0
 alunos_Cadastrados = []
 
-<<<<<<< HEAD
-=======
 login.login()
-
->>>>>>> f92c0288f7ae6c570c546c8e0a2c6aba2bffb714
 
 while True:
     
