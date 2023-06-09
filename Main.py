@@ -4,9 +4,12 @@ from os import system
 
 # DOIDEIRA DO ROBSON
 i = 0
+a = 0
 alunos_Cadastrados = []
 
+
 while True:
+    
     nome = input('Nome do Aluno:\n')
     data_N = input('Data de Nascimento do Aluno:\n')
     n_Matricula = input('Nº da Matricula do Aluno:\n')
@@ -38,8 +41,10 @@ for i in range(len(alunos_Cadastrados)):
     alunos_Cadastrados[i].exibir()
     while True:
         info = input('Deseja alterar alguma informação?\n[1] Sim\n[2] Não\n')
+        system('cls')
         while info != '1' and info != '2':
             info = input('Deseja alterar alguma informação?\n[1] Sim\n[2] Não\n')
+            system('cls')
             if info == '2':
                 break
         if info == '1':
@@ -71,10 +76,41 @@ for i in range(len(alunos_Cadastrados)):
                 sexo = input('Sexo do Aluno:\n')
                 alunos_Cadastrados[i].setSexo(sexo)
                 alunos_Cadastrados[i].exibir()
+            
         elif info == '2':
             break
-i = 0
-with open('main.txt','w') as cadastros:
-    for cadastrodos in alunos_Cadastrados:
-        i += 1
-        cadastros.write(cadastrodos.info(str(i)))
+        
+    system("cls")     
+    relatorio = input("deseja gerar um relatório:\n[1]Sim\n[2]Não\n")
+    system('cls')
+    while True:
+        if relatorio == '1':
+            text("Relatório_dos_alunos_cadastrados\n")
+            for i in range(len(alunos_Cadastrados)):
+                alunos_Cadastrados[i].exibir2()
+
+        elif relatorio == '2':
+            text("Finalizando....")
+            break
+
+        while relatorio != '1' and relatorio != '2':
+            relatorio = input("deseja gerar um relatório:\n[1]Sim\n[2]Não\n")
+            system('cls')
+
+            if relatorio == '1':
+                text("Relatório_dos_alunos_cadastrados\n")
+                for i in range(len(alunos_Cadastrados)):
+                    alunos_Cadastrados[i].exibir2()
+                break
+
+            elif relatorio == '2':
+                text("Finalizando....")
+                break
+        break
+
+
+#i = 0
+#with open('main.txt','r') as cadastros:
+    #for cadastrodos in alunos_Cadastrados:
+       #i += 1
+    #cadastros.write(cadastrodos.info(str(i)))

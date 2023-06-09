@@ -4,4 +4,5 @@
 - Jefferson Bruno de Sousa Marcondes
 - Robson André Reis Oliveira
 - Wandell da Costa Mota
+- Igor Henrique Souza Pailo
 

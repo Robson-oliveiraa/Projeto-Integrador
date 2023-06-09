@@ -1,5 +1,6 @@
 from funcoes import *
 
+
 class cadastro():
     def __init__(self, nome, data_N, n_Matricula, turma, sexo):
         self.nome = nome
@@ -7,6 +8,7 @@ class cadastro():
         self.n_Matricula = n_Matricula
         self.turma = turma
         self.sexo = sexo
+
 
     def exibir(self):
         text(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}')
@@ -28,3 +30,10 @@ class cadastro():
 
     def setSexo(self, sexo):
         self.sexo = sexo
+
+    def exibir2(self):
+        print(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}\n')
+    
+
+        
+

@@ -9,4 +9,3 @@ def text(txt):
         sleep(0.05)
     sleep(0.05)
     print(end = '\n')
-    system('cls')
