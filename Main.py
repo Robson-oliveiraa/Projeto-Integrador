@@ -2,7 +2,7 @@ from classe import *
 from funcoes import *
 from os import system
 from login import login
-from initial import initial
+
 
 def relatorio():   
     global alunos_Cadastrados
@@ -120,7 +120,7 @@ elif retorno == "1":
         system("cls")
     
 
-
+# erro
 #i = 0
 #with open('main.txt','r') as cadastros:
     #for cadastrodos in alunos_Cadastrados:

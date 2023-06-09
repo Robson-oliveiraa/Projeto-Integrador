@@ -1,4 +1,5 @@
 from funcoes import *
+from login import DataBaser
 
 
 class cadastro():
@@ -34,6 +35,32 @@ class cadastro():
     def exibir2(self):
         print(f'Nome: {self.nome}\nData de Nascimento: {self.data_N}\nNº Matricula: {self.n_Matricula}\nTurma: {self.turma}\nSexo: {self.sexo}\n')
     
+class User():
+    def __init__(self, matricula, senha, email):
+        self.matricula = matricula
+        self.senha = senha
+        self.email = email
+
+    def registerToDataBase(self):
+
+        DataBaser.cursor.execute("""
+        INSERT INTO Users(matricula, password, email) VALUES(?, ?, ?)
+        """, (self.matricula, self.senha, self.email))
+        DataBaser.conn.commit()
+        print("Registrado com sucesso")
+    
+    def log(self):
+        DataBaser.cursor.execute("""
+        SELECT * FROM Users
+        WHERE (matricula = ? AND password = ?)
+        """, (self.matricula, self.senha))
+        verify = DataBaser.cursor.fetchone()
+        try:
+            if (self.matricula in verify and self.senha in verify):
+                print("Login realizado, Bem vindo")
+
+        except:
+            print("Login negado, matricula ou senha estão errados")
 
         
 
