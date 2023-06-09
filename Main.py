@@ -7,9 +7,7 @@ from login import login
 i = 0
 a = 0
 alunos_Cadastrados = []
-
 login.login()
-
 while True:
     
     nome = input('Nome do Aluno:\n')
