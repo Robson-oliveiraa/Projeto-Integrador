@@ -2,6 +2,7 @@ from classe import *
 from funcoes import *
 from os import system
 from login import login
+from login import *
 
 
 def relatorio():   

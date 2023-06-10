@@ -61,6 +61,7 @@ class User():
 
         except:
             print("Login negado, matricula ou senha estão errados")
+            quit()
 
         
 
