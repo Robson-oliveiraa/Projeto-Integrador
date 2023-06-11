@@ -43,3 +43,5 @@ def login():
         email = None
         user = User(matricula, senha, email)
         user.log()
+        
+       

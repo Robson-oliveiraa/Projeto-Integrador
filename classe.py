@@ -58,10 +58,13 @@ class User():
         try:
             if (self.matricula in verify and self.senha in verify):
                 print("Login realizado, Bem vindo")
+                return True
 
         except:
             print("Login negado, matricula ou senha estão errados")
             quit()
+            
+            
 
         
 
