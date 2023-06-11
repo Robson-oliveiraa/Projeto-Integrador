@@ -30,4 +30,10 @@ elif retorno == "1":
 
     aluno = Alunos(nome, data, matricula, turma, sexo, modalidade)
     aluno.cad()
-    
+
+elif retorno == "4":
+    system('cls')
+    print("Ok, vamos alterar um cadastro")
+    matricula = input("Insira o número de matricula do aluno que deseja alterar\nR: ")
+    aluno = Alunos(None, None, matricula, None, None, None)
+    aluno.alterar_dado_aluno()

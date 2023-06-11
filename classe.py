@@ -12,9 +12,6 @@ class Alunos():
         self.sexo = sexo
         self.modalidade = modalidade
 
-    def setn_Matricula(self,matricula):
-        self.n_Matricula = matricula
-
     def cad(self):
         DataBaserAlunos.conn.execute("""
             INSERT INTO Alunos(matricula, nome, data_nascimento, turma, modalidade, sexo) VALUES(?,?,?,?,?,?)
@@ -43,6 +40,65 @@ class Alunos():
             print("Nenhum aluno encontrado com a matrícula fornecida.")
 
 
+    def alterar_dado_aluno(self):
+        cursor = DataBaserAlunos.conn.execute("""
+            SELECT * FROM Alunos
+            WHERE matricula = ?
+        """, (self.n_Matricula,))
+        aluno = cursor.fetchone()
+
+        if aluno is None:
+            print("Aluno não encontrado.")
+            return
+
+        print("Dados atuais do aluno:")
+        print("Matrícula:", aluno[1])
+        print("Nome:", aluno[2])
+        print("Data de Nascimento:", aluno[3])
+        print("Turma:", aluno[4])
+        print("Modalidade:", aluno[5])
+        print("---------------------")
+
+        print("Qual dado deseja alterar?")
+        escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade: ")
+
+        novo_valor = input("Novo valor: ")
+
+        if escolha == "1":
+            DataBaserAlunos.conn.execute("""
+                UPDATE Alunos
+                SET matricula = ?
+                WHERE matricula = ?
+            """, (novo_valor, self.n_Matricula))
+        elif escolha == "2":
+            DataBaserAlunos.conn.execute("""
+                UPDATE Alunos
+                SET nome = ?
+                WHERE matricula = ?
+            """, (novo_valor, self.n_Matricula))
+        elif escolha == "3":
+            DataBaserAlunos.conn.execute("""
+                UPDATE Alunos
+                SET data_nascimento = ?
+                WHERE matricula = ?
+            """, (novo_valor, self.n_Matricula))
+        elif escolha == "4":
+            DataBaserAlunos.conn.execute("""
+                UPDATE Alunos
+                SET turma = ?
+                WHERE matricula = ?
+            """, (novo_valor, self.n_Matricula))
+        elif escolha == "5":
+            DataBaserAlunos.conn.execute("""
+                UPDATE Alunos
+                SET modalidade = ?
+                WHERE matricula = ?
+            """, (novo_valor, self.n_Matricula))
+        else:
+            print("Opção inválida.")
+
+        DataBaserAlunos.conn.commit()
+        print("Dado alterado com sucesso.")
     
 class User():
     def __init__(self, matricula, senha, email):

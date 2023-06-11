@@ -107,15 +107,17 @@ def initial():
     [1] Iniciar
     [2] Sair
     [3] Ver Cadastros feitos
+    [4] Editar Cadastros
     """)
     escolha = input("R: ")
 
-    while escolha.isnumeric() == False or int(escolha) > 3:
+    while escolha.isnumeric() == False or int(escolha) > 4:
         print("Digite um número válido\nTente novamente")
         print("""
         [1] Iniciar
         [2] Sair
-        [3] Ver Cadastros feitos
+        [3] Ver cadastros feitos
+        [4] Editar cadastro
         """)
         escolha = input("R: ")
     
@@ -125,5 +127,7 @@ def initial():
         toLoad('saindo', '.', 4)
         quit()
     elif escolha == "3":
+        return escolha
+    elif escolha == "4":
         return escolha
 
