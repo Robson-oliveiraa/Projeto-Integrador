@@ -4,40 +4,9 @@ from os import system
 from login import login
 from login import *
 
-
-def relatorio():   
-    global alunos_Cadastrados
-    relatorio = input("deseja gerar um relatório:\n[1]Sim\n[2]Não\n")
-    system('cls')
-    while True:
-        if relatorio == '1':
-            text("Relatório_dos_alunos_cadastrados\n")
-            for i in range(len(alunos_Cadastrados)):
-                alunos_Cadastrados[i].exibir2()
-
-        elif relatorio == '2':
-            text("Finalizando....")
-            break
-
-        while relatorio != '1' and relatorio != '2':
-            relatorio = input("deseja gerar um relatório:\n[1]Sim\n[2]Não\n")
-            system('cls')
-
-            if relatorio == '1':
-                text("Relatório_dos_alunos_cadastrados\n")
-                for i in range(len(alunos_Cadastrados)):
-                    alunos_Cadastrados[i].exibir2()
-                break
-
-            elif relatorio == '2':
-                text("Finalizando....")
-                break
-        break
-
-# DOIDEIRA DO ROBSON
 i = 0
 a = 0
-alunos_Cadastrados = []
+
 login.login()
 
 
@@ -55,7 +24,7 @@ elif retorno == "1":
     matricula = input("Matricula: ")
     nome = input("Nome: ")
     data = input("Data: ")
-    turma = input("Turma: ")
+    turma = escolher_turma()
     sexo = input("Sexo: ")
     modalidade = input("Modalidade: ")
 
