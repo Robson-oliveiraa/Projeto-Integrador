@@ -12,6 +12,8 @@ class Alunos():
         self.sexo = sexo
         self.modalidade = modalidade
 
+    def setn_Matricula(self,matricula):
+        self.n_Matricula = matricula
 
     def cad(self):
         DataBaserAlunos.conn.execute("""
@@ -19,6 +21,27 @@ class Alunos():
         """,(self.n_Matricula, self.nome, self.data_N, self.turma, self.modalidade, self.sexo))
         DataBaserAlunos.conn.commit()
         print("Cadastrado com sucesso.")
+    
+    def relatorio(self):
+        cursor = DataBaserAlunos.conn.execute("""
+        SELECT * FROM Alunos
+        WHERE matricula = ?
+        """,(self.n_Matricula,))
+        alunos = cursor.fetchall()
+        if len(alunos) > 0:
+            print("Informações do aluno:")
+            for aluno in alunos:
+                print(f"""
+                matricula: {aluno[1]}
+                nome: {aluno[2]}
+                data_nascimento: {aluno[3]}
+                turma: {aluno[4]}
+                modalidade: {aluno[5]}
+                sexo: {aluno[6]}
+                """)
+        else:
+            print("Nenhum aluno encontrado com a matrícula fornecida.")
+
 
     
 class User():

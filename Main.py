@@ -45,17 +45,20 @@ retorno = initial()
 
 
 if retorno == "3":
-    relatorio()
+    print("Deseja verifica a matricula do aluno")
+    matricula = input("Matricula:")
+    aluno = Alunos(None,None,matricula,None,None,None)
+    aluno.relatorio()
+
 elif retorno == "1":
     print("Cadastre o aluno aqui")
-    matricula = input("matricula: ")
-    nome = input("nome: ")
-    data = input("data: ")
-    turma = input("turma: ")
-    sexo = input("sexo: ")
-    modalidade = input("modalidade: ")
+    matricula = input("Matricula: ")
+    nome = input("Nome: ")
+    data = input("Data: ")
+    turma = input("Turma: ")
+    sexo = input("Sexo: ")
+    modalidade = input("Modalidade: ")
 
     aluno = Alunos(nome, data, matricula, turma, sexo, modalidade)
     aluno.cad()
-
-
+    
