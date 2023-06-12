@@ -3,6 +3,7 @@ from login import DataBaser
 import DataBaserAlunos
 
 
+
 class Alunos():
     #Igor
     def __init__(self, nome, data_N, n_Matricula, turma, modalidade, sexo):

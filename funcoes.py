@@ -226,6 +226,7 @@ def data():
 
 def escolher_sexo():
     
+    
     print("[1]Masculino\n[2]Feminino")
     escolha = input("R: ")
     while escolha.isnumeric() == False or int(escolha) > 2 or int(escolha) < 1:

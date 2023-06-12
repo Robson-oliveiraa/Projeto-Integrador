@@ -25,9 +25,17 @@ while True:
             aluno = Alunos(None,None,matricula,None,None,None)
             aluno.relatorio()
 
-            reiniciar = input("Deseja verificar mais algum cadastro?\n(S/N): ")
-            if reiniciar.lower() !="s":
+            reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")
+            reiniciar = reiniciar.upper()
+
+            while reiniciar != "S" and reiniciar != "N":
+                print("Inválido\nTente novamente")
+                reiniciar = input("Deseja fazer mais algum cadastro?\n(S/N): ")
+                reiniciar = reiniciar.upper()
+
+            if reiniciar == "N":
                 break
+            
         
     elif retorno == "1":
         # Jeff
@@ -45,11 +53,17 @@ while True:
             sexo = escolher_sexo()
             modalidade = escolher_modalidade()
 
-            aluno = Alunos(nome, data_nascimento.strftime("%d/%m/%Y"), matricula, turma, sexo, modalidade)
+            aluno = Alunos(nome, data_nascimento.strftime("%d/%m/%Y"), matricula, turma, modalidade, sexo)
             aluno.cad()
 
-            reiniciar = input("Deseja fazer mais algum cadastro?\n(S/N): ")
-            if reiniciar.lower() !="s":
+            reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")
+            reiniciar = reiniciar.upper()
+            while reiniciar != "S" and reiniciar != "N":
+                print("Inválido\nTente novamente")
+                reiniciar = input("Deseja fazer mais algum cadastro?\n(S/N): ")
+                reiniciar = reiniciar.upper()
+
+            if reiniciar == "N":
                 break
 
     elif retorno == "4": 
@@ -65,7 +79,13 @@ while True:
             aluno.alterar_dados()
 
             reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")
-            if reiniciar.lower() !="s":
+            reiniciar = reiniciar.upper()
+            while reiniciar != "S" and reiniciar != "N":
+                print("Inválido\nTente novamente")
+                reiniciar = input("Deseja fazer mais algum cadastro?\n(S/N): ")
+                reiniciar = reiniciar.upper()
+
+            if reiniciar == "N":
                 break
 
     elif retorno == "5":
