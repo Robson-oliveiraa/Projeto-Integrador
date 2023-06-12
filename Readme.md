@@ -6,4 +6,4 @@
 - Wandell da Costa Mota
 - Igor Henrique Souza Pailo
 
-
+# Execute o arquivo 'main.py'
