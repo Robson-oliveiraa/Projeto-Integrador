@@ -4,6 +4,7 @@ from os import system
 from datetime import datetime
 import DataBaserAlunos
 
+# Robson
 def text(txt):
     for letra in list(txt):
         print(letra, end = '')
@@ -12,21 +13,15 @@ def text(txt):
     sleep(0.05)
     print(end = '\n')
 
-def escolher_sexo():
-    
-    print("[1]Masculino\n[2]Feminino")
-    escolha = input("R: ")
-    while escolha.isnumeric() == False or int(escolha) > 2 or int(escolha) < 1:
-        print("Número invalido\nTente novamente")
-        escolha = input("R: ")
+def toLoad(text, str, times):
+    for i in range(3):
+        for i in range(times):
+            points = str*i
+            print(text, points)
+            sleep(0.4)
+            system('cls')
 
-    if escolha == "1":
-        escolha = "M"
-    else:
-        escolha = "F"
-
-    return escolha
-
+#VVande11
 def escolher_turma():
     turmas = [
     "1º Informática A",
@@ -95,6 +90,82 @@ def escolher_turma():
 
     return turmas[escolha]
 
+def relatorio_geral():
+        cursor = DataBaserAlunos.conn.execute("""
+            SELECT * FROM Alunos
+            ORDER BY turma
+        """)
+
+        alunos = cursor.fetchall()
+
+        if len(alunos) > 0:
+            turma_atual = ""
+            print("Alunos Cadastrados")
+            for aluno in alunos:
+                if aluno[4] != turma_atual:
+                    turma_atual = aluno[4]
+                    print(f"\nTurma: {turma_atual}")
+                print(f"""
+                Dados atuais do aluno:
+                Matrícula: {aluno[1]}
+                Nome: {aluno[2]}
+                Data de Nascimento: {aluno[3]}
+                Turma: {aluno[4]}
+                Modalidade: {aluno[5]}
+                Sexo: {aluno[6]}
+                """)
+
+        else:
+            print("Nenhum aluno cadastrado")
+
+#Douglas
+def initial():
+    print("━━━━━━━━━━━━━━━━❪❂❫━━━━━━━━━━━━━━━━")
+    print("             BEM VINDO             ")
+    print("━━━━━━━━━━━━━━━━❪❂❫━━━━━━━━━━━━━━━━")
+    sleep(3)
+
+    toLoad('carregando', '.', 4)
+
+    print("┎━─━─━─━─━─━━─━─━──━─━━─━━─━━─━━─━─━┒")
+    text("           System for JIC'S           ")
+    print("┖━─━─━─━─━─━─━─━──━─━─━─━─━─━─━─━─━━┚")
+
+def options():
+    print("Oque deseja fazer?")
+    print("""
+    [1] Iniciar
+    [2] Sair
+    [3] Ver Cadastros feitos
+    [4] Editar Cadastros
+    [5] Relatório
+    """)
+    escolha = input("R: ")
+
+    while escolha.isnumeric() == False or int(escolha) > 5:
+        print("Digite um número válido\nTente novamente")
+        print("""
+        [1] Iniciar
+        [2] Sair
+        [3] Ver cadastros feitos
+        [4] Editar cadastro
+        [5] Relatório
+        """)
+        escolha = input("R: ")
+    
+    if escolha == "1":
+        return escolha
+    elif escolha == "2":
+        toLoad('saindo', '.', 4)
+        quit()
+    elif escolha == "3":
+        return escolha
+    elif escolha == "4":
+        return escolha
+    elif escolha == "5":
+        return escolha
+
+#Igor
 def escolher_modalidade():
     modalidade = [
     "ARREMESSO DE PESO",
@@ -143,60 +214,7 @@ def escolher_modalidade():
 
     return modalidade [escolha]
 
-def toLoad(text, str, times):
-    for i in range(3):
-        for i in range(times):
-            points = str*i
-            print(text, points)
-            sleep(0.4)
-            system('cls')
-
-def initial():
-    print("━━━━━━━━━━━━━━━━❪❂❫━━━━━━━━━━━━━━━━")
-    print("             BEM VINDO             ")
-    print("━━━━━━━━━━━━━━━━❪❂❫━━━━━━━━━━━━━━━━")
-    sleep(3)
-
-    toLoad('carregando', '.', 4)
-
-    print("┎━─━─━─━─━─━━─━─━──━─━━─━━─━━─━━─━─━┒")
-    text("           System for JIC'S           ")
-    print("┖━─━─━─━─━─━─━─━──━─━─━─━─━─━─━─━─━━┚")
-
-def options():
-    print("Oque deseja fazer?")
-    print("""
-    [1] Iniciar
-    [2] Sair
-    [3] Ver Cadastros feitos
-    [4] Editar Cadastros
-    [5] Relatório
-    """)
-    escolha = input("R: ")
-
-    while escolha.isnumeric() == False or int(escolha) > 5:
-        print("Digite um número válido\nTente novamente")
-        print("""
-        [1] Iniciar
-        [2] Sair
-        [3] Ver cadastros feitos
-        [4] Editar cadastro
-        [5] Relatório
-        """)
-        escolha = input("R: ")
-    
-    if escolha == "1":
-        return escolha
-    elif escolha == "2":
-        toLoad('saindo', '.', 4)
-        quit()
-    elif escolha == "3":
-        return escolha
-    elif escolha == "4":
-        return escolha
-    elif escolha == "5":
-        return escolha
-
+# Jeff
 def data():
         while True:
             data_str = input("Digite sua data de nascimento (DD/MM/AAAA): ")
@@ -206,30 +224,17 @@ def data():
             except ValueError:
                 print("Formato inválido. Digite a data no formato DD/MM/AAAA.")
 
-def relatorio_geral():
-        cursor = DataBaserAlunos.conn.execute("""
-            SELECT * FROM Alunos
-            ORDER BY turma
-        """)
+def escolher_sexo():
+    
+    print("[1]Masculino\n[2]Feminino")
+    escolha = input("R: ")
+    while escolha.isnumeric() == False or int(escolha) > 2 or int(escolha) < 1:
+        print("Número invalido\nTente novamente")
+        escolha = input("R: ")
 
-        alunos = cursor.fetchall()
+    if escolha == "1":
+        escolha = "M"
+    else:
+        escolha = "F"
 
-        if len(alunos) > 0:
-            turma_atual = ""
-            print("Alunos Cadastrados")
-            for aluno in alunos:
-                if aluno[4] != turma_atual:
-                    turma_atual = aluno[4]
-                    print(f"\nTurma: {turma_atual}")
-                print(f"""
-                Dados atuais do aluno:
-                Matrícula: {aluno[1]}
-                Nome: {aluno[2]}
-                Data de Nascimento: {aluno[3]}
-                Turma: {aluno[4]}
-                Modalidade: {aluno[5]}
-                Sexo: {aluno[6]}
-                """)
-
-        else:
-            print("Nenhum aluno cadastrado")
+    return escolha

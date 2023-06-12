@@ -4,6 +4,7 @@ import DataBaserAlunos
 
 
 class Alunos():
+    #Igor
     def __init__(self, nome, data_N, n_Matricula, turma, modalidade, sexo):
         self.nome = nome
         self.data_N = data_N
@@ -12,6 +13,7 @@ class Alunos():
         self.modalidade = modalidade
         self.sexo = sexo
 
+    #Robson
     def cad(self):
         DataBaserAlunos.conn.execute("""
             INSERT INTO Alunos(matricula, nome, data_nascimento, turma, modalidade, sexo) VALUES(?,?,?,?,?,?)
@@ -19,26 +21,7 @@ class Alunos():
         DataBaserAlunos.conn.commit()
         print("Cadastrado com sucesso.")
     
-    def relatorio(self):
-        cursor = DataBaserAlunos.conn.execute("""
-        SELECT * FROM Alunos
-        WHERE matricula = ?
-        """,(self.n_Matricula,))
-        alunos = cursor.fetchall()
-        if len(alunos) > 0:
-            print("Informações do aluno:")
-            for aluno in alunos:
-                print(f"""
-                matricula: {aluno[1]}
-                nome: {aluno[2]}
-                data_nascimento: {aluno[3]}
-                turma: {aluno[4]}
-                modalidade: {aluno[5]}
-                sexo: {aluno[6]}
-                """)
-        else:
-            print("Não foi possivel encontrar algum aluno com a matrícula fornecida.\nVerifique os dados")
-
+    #Robson
     def alterar_dados(self):
         cursor = DataBaserAlunos.conn.execute("""
             SELECT * FROM Alunos
@@ -124,9 +107,28 @@ class Alunos():
         DataBaserAlunos.conn.commit()
         print("Dado alterado com sucesso")
     
-    
+    #VVande11
+    def relatorio(self):
+        cursor = DataBaserAlunos.conn.execute("""
+        SELECT * FROM Alunos
+        WHERE matricula = ?
+        """,(self.n_Matricula,))
+        alunos = cursor.fetchall()
+        if len(alunos) > 0:
+            print("Informações do aluno:")
+            for aluno in alunos:
+                print(f"""
+                matricula: {aluno[1]}
+                nome: {aluno[2]}
+                data_nascimento: {aluno[3]}
+                turma: {aluno[4]}
+                modalidade: {aluno[5]}
+                sexo: {aluno[6]}
+                """)
+        else:
+            print("Não foi possivel encontrar algum aluno com a matrícula fornecida.\nVerifique os dados")
 
-
+#Douglas
 class User():
     def __init__(self, matricula, senha, email):
         self.matricula = matricula

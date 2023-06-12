@@ -4,15 +4,17 @@ from os import system
 from login import login
 from login import *
 
-
+#Douglas
 login.login()
 
 initial()
+
 
 while True:
     retorno = options() 
 
     if retorno == "3":
+        # Jeff
         while True:
             print("Deseja verifica a matricula do aluno")
             matricula = input("Matricula:")
@@ -28,6 +30,7 @@ while True:
                 break
         
     elif retorno == "1":
+        # Jeff
         while True:
             print("Cadastre um aluno aqui")
             matricula = input("Matricula: ")
@@ -50,6 +53,7 @@ while True:
                 break
 
     elif retorno == "4": 
+        # Jeff
         while True:
             system('cls')
             print("Ok, vamos alterar um cadastro")
