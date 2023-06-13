@@ -45,11 +45,11 @@ class Alunos():
         """)
 
         print("Qual dado deseja alterar?")
-        escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n ")
+        escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n: ")
 
         while escolha.isnumeric() == False or int(escolha) > 6 or int(escolha) < 1:
             print("Número inválido\nTente novamente")
-            escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n")
+            escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n: ")
 
         
 
