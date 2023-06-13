@@ -1,8 +1,8 @@
-# Douglas Arthur da Silva Bento
-# Jefferson Bruno de Sousa Marcondes
-# Robson André Reis Oliveira
-# Wandell da Costa Mota
-# Igor Henrique Souza Pailo
+# Douglas Arthur da Silva Bento #
+# Jefferson Bruno de Sousa Marcondes #
+# Robson André Reis Oliveira #
+# Wandell da Costa Mota #
+# Igor Henrique Souza Pailo #
 
 from classe import *
 from funcoes import *
