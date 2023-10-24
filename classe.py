@@ -2,8 +2,90 @@ from funcoes import *
 from login import DataBaser
 import DataBaserAlunos
 
+class usuario():
+    def __init__(self, nMatricula,senha):
+        self.nMatricula = nMatricula
+        self.__senha = senha
+
+    def verificarLogin(self):
+        DataBaser.cursor.execute("""
+        SELECT * FROM Users
+        WHERE (matricula = ? AND password = ?)
+        """, (self.nMatricula, self.senha))
+        verify = DataBaser.cursor.fetchone()
+        try:
+            if (self.nMatricula in verify and self.senha in verify):
+                print("Login realizado, Bem vindo")
+                return True
+
+        except:
+            print("Login negado, matricula ou senha estão errados")
+            quit()
+
+class aluno(usuario):
+    def __init__(self, nome, senha, turma, sexo, dataNascimento, modalidadeInscrita):
+        super.__init__(nome, senha)
+        self.turma = turma
+        self.sexo = sexo
+        self.dataNascimento = dataNascimento
+        self.modalidade = modalidadeInscrita
+
+    def cadastraInfo(self):
+        DataBaserAlunos.conn.execute("""
+            INSERT INTO Alunos(matricula, nome, data_nascimento, turma, modalidade, sexo) VALUES(?,?,?,?,?,?)
+        """,(self.n_Matricula, self.nome, self.data_N, self.turma, self.modalidade, self.sexo))
+        DataBaserAlunos.conn.commit()
+        print("Cadastrado com sucesso.")
+
+    def inscreverModalidade():
+        escolher_modalidade()
+
+    def __AlteraSenhar(self ):
+        matricula = input('Qual é sua madricula:\n')
+
+        DataBaserAlunos.conn.execute("""
+            SELECT I* FROM Users
+            WHERE ( matricula = ?)
+        """, (self.nMatricula))
+        verify = DataBaserAlunos.cusor.fetchone()
+        try:
+            if ( self.nMatricula in verify):
+                print('Matricula Correta')
+
+        except:
+            print("Matricula Incorreto")
+            quit()
 
 
+        cursor = DataBaserAlunos.conn.execute("""
+            SELECT INTO Users(matricula, password) VALUES(?, ?)
+            WHERE matricula = ?
+        """, (self.n_Matricula, self.__senha))
+        aluno = cursor.fetchone()
+
+        if aluno is None:
+            print("Não foi possivel encontrar este aluno\nVerifique os dados informados")
+            return
+
+        print(f"""
+        Dados atuais do aluno:
+        Matrícula: {aluno[1]}
+        Nome: {aluno[2]}
+        Data de Nascimento: {aluno[3]}
+        Turma: {aluno[4]}
+        Modalidade: {aluno[5]}
+        Sexo: {aluno[6]}
+        """)
+
+        print("Qual dado deseja alterar?")
+        escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n: ")
+
+        while escolha.isnumeric() == False or int(escolha) > 6 or int(escolha) < 1:
+            print("Número inválido\nTente novamente")
+            escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n: ")
+
+
+'''
 class Alunos():
     #Igor
     def __init__(self, nome, data_N, n_Matricula, turma, modalidade, sexo):
@@ -158,8 +240,4 @@ class User():
         except:
             print("Login negado, matricula ou senha estão errados")
             quit()
-            
-            
-
-        
-
+'''
