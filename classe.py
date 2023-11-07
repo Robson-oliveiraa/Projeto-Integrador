@@ -1,11 +1,13 @@
 from funcoes import *
 from login import DataBaser
 import DataBaserAlunos
+import random
 
-class usuario():
-    def __init__(self, nMatricula,senha):
+class Usuario():
+    def __init__(self, nMatricula,senha, email):
         self.nMatricula = nMatricula
         self.__senha = senha
+        self.email = email
 
     def verificarLogin(self):
         DataBaser.cursor.execute("""
@@ -22,7 +24,48 @@ class usuario():
             print("Login negado, matricula ou senha estão errados")
             quit()
 
-class aluno(usuario):
+    def recuperarSenha(self):
+        DataBaser.cursor.execute("""
+        SELECT * FROM Users
+        WHERE (email = ?)
+        """, (self.email))
+        verify = DataBaser.cursor.fetchone()
+        try:
+            if (self.email in verify):
+                numeros = ("1","2","3","4","5","6","7","8","9","10")
+                letras = ("A","B","C","D","a","b","c","d")
+                codigo = ""
+
+                for i in range(6):
+                    nOuL = random.randint(1,2)
+                    if nOuL == 1:
+                        sort = random.randint(0,9)
+                        codigo += str(numeros[sort])
+                    else:
+                        sort = random.randint(0,7)
+                        codigo += letras[sort]
+
+                codigo = str(codigo)
+                
+                while True:
+                    print(f'{codigo}\nEscreva no input o codigo:')
+                    confCodigo = input('aqui:\n')
+                    try:
+                        if codigo == confCodigo:
+                            print('Codigo valido')
+                            break
+
+                    except:
+                        print('Verifique se o codigo esta certo')
+
+                print("Foi enviado um código no seu e-mail, coloque-o em baixo")
+                return True
+
+        except:
+            print("Login negado, matricula ou senha estão errados")
+            quit()
+
+class Aluno(Usuario):
     def __init__(self,nMatricula, nome, senha, turma, sexo, dataNascimento, modalidadeInscrita):
         super.__init__(nMatricula, senha)
         self.nome = nome
@@ -85,7 +128,7 @@ class aluno(usuario):
             print("Número inválido\nTente novamente")
             escolha = input("[1] Matrícula\n[2] Nome\n[3] Data de Nascimento\n[4] Turma\n[5] Modalidade\n[6] Sexo\n: ")
 
-class administrador(usuario):
+class Administrador(Usuario):
     def __init__(self,nMatriculaADM, Turmas):
         self.nMatriculaAdm = nMatriculaADM
         self.TurmasResponsavel = Turmas
