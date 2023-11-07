@@ -10,6 +10,12 @@ from os import system
 from login import login
 from login import *
 
+email = "douglas@gmail.com"
+
+Usuario = (None,None,email)
+
+Usuario.recuperarSenha
+
 #Douglas
 login.login()
 
@@ -28,7 +34,7 @@ while True:
                     print("Matricula deve conter somente números\nTente Novamente")
                     matricula = input("Matricula: ")
 
-            aluno = Alunos(None,None,matricula,None,None,None)
+            aluno = Aluno(None,None,matricula,None,None,None)
             aluno.relatorio()
 
             reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")
@@ -59,8 +65,8 @@ while True:
             sexo = escolher_sexo()
             modalidade = escolher_modalidade()
 
-            aluno = Alunos(nome, data_nascimento.strftime("%d/%m/%Y"), matricula, turma, modalidade, sexo)
-            aluno.cad()
+            aluno = Aluno(nome, data_nascimento.strftime("%d/%m/%Y"), matricula, turma, modalidade, sexo)
+            aluno.cadastrarInfo()
 
             reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")
             reiniciar = reiniciar.upper()
@@ -81,7 +87,7 @@ while True:
             while matricula.isnumeric() == False:
                 print("Matricula deve conter somente números\nTente Novamente")
                 matricula = input("Insira o número de matricula do aluno que deseja alterar\nR: ")
-            aluno = Alunos(None, None, matricula, None, None, None)
+            aluno = Aluno(None, None, matricula, None, None, None)
             aluno.alterar_dados()
 
             reiniciar = input("Deseja alterar mais algum cadastro?\n(S/N): ")

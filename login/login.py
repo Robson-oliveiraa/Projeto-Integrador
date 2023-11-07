@@ -2,7 +2,7 @@
 
 
 import re
-from classe import User
+from classe import Usuario
 
 
 def validar_email(email):
@@ -38,13 +38,13 @@ def login():
             print("Digite um email válido") 
             email = input("Email: ")
 
-        user = User(matricula, senha, email)
+        user = Usuario(matricula, senha, email)
         user.registerToDataBase()
     else:
         matricula = input("Matricula: ")
         senha = input("Senha: ")
         email = None
-        user = User(matricula, senha, email)
-        user.log()
+        user = Usuario(matricula, senha, email)
+        user.verificarLogin()
         
        

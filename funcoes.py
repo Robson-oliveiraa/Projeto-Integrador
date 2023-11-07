@@ -4,6 +4,9 @@ from os import system
 from datetime import datetime
 import DataBaserAlunos
 
+
+
+
 # Robson
 def text(txt):
     for letra in list(txt):
