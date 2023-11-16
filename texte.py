@@ -1,23 +1,43 @@
-import random
+# import random
 
-numeros = ["1","2","3","4","5","6","7","8","9","10"]
-letras = ["A","B","C","D","a","b","c","d"]
-codigo = ""
+# alunos= []
 
-for i in range(6):
-    nOuL = random.randint(1,2)
-    if nOuL == 1:
-        sort = random.randint(0,9)
-        codigo += str(numeros[sort])
-    else:
-        sort = random.randint(0,7)
-        codigo += letras[sort]
+# class Bateria():   
 
-codigo = str(codigo)
-print(codigo)
-confCod = input('Digite o codigo:\n')
-if confCod == codigo:
-    print('Codigo certo👌')
+#     def __init__(self,alunos):
+#         self.alunos = alunos
 
-else:
-    print('Codigo errado👎, paia')
+#     def DefinirOrdem(self, ListaAlunos):
+#         ListaBateria = random.sample(ListaAlunos, len(ListaAlunos))
+#         return  ListaBateria
+
+# while True:
+#     objeto = input("Nome:\n")
+#     alunos.append(objeto)
+#     reini = input('Reiniciar:\n[1]S\n[2]N\n')
+#     try:
+#         if reini == '2':
+#             break
+#     except:
+#         print()
+
+# Ordem_Bateria = Bateria(alunos)
+# Ordem = Ordem_Bateria.DefinirOrdem(alunos)
+
+# for pessoa in Ordem:
+#     print(pessoa)
+
+
+teste = ['1','2','3','4','5','6','7']
+if len(teste) % 2 == 0:
+    tamanho = (len(teste)/2)
+    tamanho = int(tamanho)
+    for i in range(tamanho):
+        print(teste[i])
+
+elif len(teste) % 2 == 1:
+    teste.append(None)
+    tamanho = (len(teste)/2)
+    tamanho = int(tamanho)
+    for i in range(tamanho):
+        print(teste[i])
